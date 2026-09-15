@@ -2,7 +2,7 @@
   "oeuvres": [
     {
       "image": "/static/uploads/20260414_154936.jpg",
-      "titre": "la chute",
+      "titre": "La Chute",
       "technique": "huile sur toile",
       "annee": "2026",
       "dimensions": "220 x150 cm"
@@ -23,7 +23,7 @@
     },
     {
       "image": "/static/uploads/20240916_142514.jpg",
-      "titre": "Le triomphe de pan",
+      "titre": "Le Triomphe de Pan",
       "technique": "Huile sur toile ",
       "annee": "2025",
       "dimensions": "120 x 90 cm"
