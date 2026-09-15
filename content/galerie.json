@@ -2,7 +2,15 @@
   "oeuvres": [
     {
       "image": "/static/uploads/20260717_113353.jpg",
-      "titre": "connasse"
+      "titre": "Eau Claire de la Lune",
+      "annee": "2026",
+      "dimensions": "120 X 67"
+    },
+    {
+      "image": "/static/uploads/20260115_105958.jpg",
+      "titre": "Je suis lesbienne.",
+      "annee": "67",
+      "dimensions": "67x67"
     }
   ]
 }
