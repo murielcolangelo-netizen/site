@@ -1,5 +1,8 @@
 # Site de Muriel Colangelo — Guide de mise en ligne
 
+## Photo de fond de l’accueil
+Dans l’administration → « Informations du site » → « Photos, biographie, contact et expositions », importez une image dans « Photo de fond de l’accueil ». Réglez « Transparence du fond (%) » (80 conseillé pour une image discrète), puis cliquez sur « Publish ». La photo reste entière derrière le nom et le portrait. Supprimez ce champ image pour retrouver le fond uni.
+
 ## Étape 1 — GitHub (5 min)
 1. Créez un compte sur https://github.com
 2. Cliquez sur « New repository » → nom : `site-muriel-colangelo` → Public → Create

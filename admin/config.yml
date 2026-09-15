@@ -35,6 +35,8 @@ collections:
         file: "content/site.json"
         fields:
           - {label: "Photo d’accueil", name: "photo_accueil", widget: "image", required: false, hint: "Photo affichée à côté de votre nom sur l’accueil, sans recadrage. Indépendante de la photo À propos."}
+          - {label: "Photo de fond de l’accueil", name: "fond_accueil", widget: "image", required: false, hint: "Importez votre nouvelle photo : elle apparaît derrière le nom et le portrait, sans découpe. Retirez-la pour revenir au fond uni."}
+          - {label: "Transparence du fond (%)", name: "transparence_fond_accueil", widget: "number", value_type: "int", min: 0, max: 100, step: 1, default: 80, required: false, hint: "80 = photo discrète ; 0 = photo pleinement visible ; 100 = photo invisible. Ce réglage ne modifie ni le texte ni le portrait."}
           - {label: "Photo À propos", name: "portrait", widget: "image", required: false, hint: "Photo affichée uniquement dans la section À propos, sans recadrage."}
           - {label: "Lieu (ex. Née et travaille à Bruxelles)", name: "lieu", widget: "string"}
           - {label: "Biographie", name: "bio", widget: "text"}
