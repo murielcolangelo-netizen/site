@@ -27,3 +27,5 @@
 - Les champs « Photo d’accueil » et « Photo À propos » permettent de choisir deux photos indépendantes. Téléversez une image dans chaque champ, puis cliquez sur « Publish » ; leurs proportions sont conservées.
 - L'ordre des œuvres se change en glissant les entrées.
 - Ajouter des œuvres à une exposition : ouvrez l’exposition dans « Informations du site », puis « Œuvres de cette exposition » → « + ». Choisissez une image depuis votre ordinateur ou la médiathèque et renseignez le titre (technique, année et dimensions facultatives). Cliquez sur « Publish ». Les œuvres s’affichent sous cette exposition, sans recadrage ; cette liste est indépendante de la galerie principale.
+
+- Modifier les textes fixes : admin → « Textes du site » → « Tous les textes et libellés ». Nom, menus, titres, citation, pied de page et messages sont personnalisables. Les biographies, expositions et titres d’œuvres restent dans leurs rubriques habituelles. Cliquez sur « Publish » pour publier.

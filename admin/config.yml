@@ -63,3 +63,46 @@ collections:
                   - {label: "Technique", name: "technique", widget: "string", required: false}
                   - {label: "Année", name: "annee", widget: "string", required: false}
                   - {label: "Dimensions", name: "dimensions", widget: "string", required: false}
+
+  - name: "textes"
+    label: "Textes du site"
+    files:
+      - name: "textes"
+        label: "Tous les textes et libellés"
+        file: "content/textes.json"
+        fields:
+          - {"label":"Titre de l’onglet","name":"titre_page","widget":"string","required":false}
+          - {"label":"Nom dans le menu","name":"logo","widget":"string","required":false}
+          - {"label":"Activité","name":"activite","widget":"string","required":false}
+          - {"label":"Nom — première ligne","name":"prenom","widget":"string","required":false}
+          - {"label":"Nom — deuxième ligne","name":"nom","widget":"string","required":false}
+          - {"label":"Citation d’accueil","name":"citation","widget":"text","required":false}
+          - {"label":"Lieu sur l’accueil","name":"lieu_accueil","widget":"string","required":false}
+          - {"label":"Menu — Œuvres","name":"menu_oeuvres","widget":"string","required":false}
+          - {"label":"Titre de section — Œuvres","name":"titre_oeuvres","widget":"string","required":false}
+          - {"label":"Numéro de section — Œuvres","name":"numero_oeuvres","widget":"string","required":false}
+          - {"label":"Menu — À propos","name":"menu_apropos","widget":"string","required":false}
+          - {"label":"Titre de section — À propos","name":"titre_apropos","widget":"string","required":false}
+          - {"label":"Numéro de section — À propos","name":"numero_apropos","widget":"string","required":false}
+          - {"label":"Menu — Expositions","name":"menu_expositions","widget":"string","required":false}
+          - {"label":"Titre de section — Expositions","name":"titre_expositions","widget":"string","required":false}
+          - {"label":"Numéro de section — Expositions","name":"numero_expositions","widget":"string","required":false}
+          - {"label":"Menu — Contact","name":"menu_contact","widget":"string","required":false}
+          - {"label":"Titre de section — Contact","name":"titre_contact","widget":"string","required":false}
+          - {"label":"Numéro de section — Contact","name":"numero_contact","widget":"string","required":false}
+          - {"label":"Phrase de contact","name":"contact_intro","widget":"text","required":false}
+          - {"label":"Note de contact","name":"contact_note","widget":"string","required":false}
+          - {"label":"Copyright","name":"copyright","widget":"string","required":false}
+          - {"label":"Signature de pied de page","name":"signature","widget":"string","required":false}
+          - {"label":"Bouton de fermeture","name":"fermer","widget":"string","required":false}
+          - {"label":"Message de chargement","name":"chargement","widget":"string","required":false}
+          - {"label":"Description pour les moteurs de recherche","name":"description","widget":"text","required":false}
+          - {"label":"Mention sur le portrait","name":"portrait_label","widget":"string","required":false}
+          - {"label":"Description de la photo d’accueil","name":"alt_accueil","widget":"string","required":false}
+          - {"label":"Description de la photo À propos","name":"alt_portrait","widget":"string","required":false}
+          - {"label":"Libellé d’agrandissement","name":"agrandir","widget":"string","required":false}
+          - {"label":"Description d’image par défaut","name":"image","widget":"string","required":false}
+          - {"label":"Titre de la vue agrandie","name":"image_agrandie","widget":"string","required":false}
+          - {"label":"Titre d’œuvre par défaut","name":"oeuvre_exposee","widget":"string","required":false}
+          - {"label":"Message de galerie indisponible","name":"galerie_vide","widget":"string","required":false}
+          - {"label":"Préfixe des numéros d’œuvres","name":"prefixe_numero","widget":"string","required":false}
