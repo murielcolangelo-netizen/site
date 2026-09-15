@@ -1,0 +1,25 @@
+{
+  "lieu": "Née et travaille à Bruxelles.",
+  "bio": "Écrivez ici votre biographie : parcours, médium, démarche. Vous pourrez la modifier à tout moment depuis le panneau d'administration.",
+  "portrait": "/static/uploads/portrait.svg",
+  "email": "votre@email.com",
+  "instagram": "@votrecompte",
+  "instagram_url": "https://instagram.com/votrecompte",
+  "expositions": [
+    {
+      "annee": "2026",
+      "titre": "Titre de l'exposition",
+      "lieu": "Galerie — Ville"
+    },
+    {
+      "annee": "2025",
+      "titre": "Titre de l'exposition",
+      "lieu": "Espace — Ville"
+    },
+    {
+      "annee": "2024",
+      "titre": "Titre de l'exposition",
+      "lieu": "Centre d'art — Ville"
+    }
+  ]
+}

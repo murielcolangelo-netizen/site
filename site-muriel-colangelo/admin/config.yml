@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/static/uploads"
+
+locale: "fr"
+
+collections:
+  - name: "galerie"
+    label: "Galerie"
+    files:
+      - name: "oeuvres"
+        label: "Œuvres"
+        file: "content/galerie.json"
+        description: "Ajoutez, supprimez ou réordonnez vos œuvres ici."
+        fields:
+          - label: "Œuvres"
+            name: "oeuvres"
+            widget: "list"
+            summary: "{{fields.titre}}"
+            fields:
+              - {label: "Image", name: "image", widget: "image", required: true}
+              - {label: "Titre", name: "titre", widget: "string"}
+              - {label: "Technique", name: "technique", widget: "string", required: false}
+              - {label: "Année", name: "annee", widget: "string", required: false}
+              - {label: "Dimensions", name: "dimensions", widget: "string", required: false}
+
+  - name: "site"
+    label: "Informations du site"
+    files:
+      - name: "infos"
+        label: "Biographie et contact"
+        file: "content/site.json"
+        fields:
+          - {label: "Photo portrait", name: "portrait", widget: "image", required: false}
+          - {label: "Lieu (ex. Née et travaille à Bruxelles)", name: "lieu", widget: "string"}
+          - {label: "Biographie", name: "bio", widget: "text"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Pseudo Instagram", name: "instagram", widget: "string", required: false}
+          - {label: "Lien Instagram (URL complète)", name: "instagram_url", widget: "string", required: false}
+          - label: "Expositions (par ordre chronologique inverse)"
+            name: "expositions"
+            widget: "list"
+            summary: "{{fields.annee}} — {{fields.titre}}"
+            fields:
+              - {label: "Année", name: "annee", widget: "string"}
+              - {label: "Exposition", name: "titre", widget: "string"}
+              - {label: "Lieu", name: "lieu", widget: "string"}
