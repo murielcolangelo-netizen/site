@@ -274,7 +274,7 @@ fetch('/content/galerie.json').then(r => r.json()).then(data => {
 fetch('/content/site.json').then(r => r.json()).then(s => {
   const portrait = s.portrait || '/static/uploads/portrait.svg';
   document.getElementById('portrait').src = portrait;
-  document.getElementById('photo-accueil').src = portrait;
+  document.getElementById('photo-accueil').src = s.photo_accueil || '/static/uploads/portrait.svg';
   document.getElementById('lieu').textContent = s.lieu;
   document.getElementById('bio').textContent = s.bio;
   if (s.expositions && s.expositions.length) {

@@ -34,7 +34,8 @@ collections:
         label: "Biographie et contact"
         file: "content/site.json"
         fields:
-          - {label: "Photo portrait — Accueil et À propos", name: "portrait", widget: "image", required: false, hint: "Cette photo apparaît à côté de votre nom sur l’accueil et dans la section À propos, sans recadrage."}
+          - {label: "Photo d’accueil", name: "photo_accueil", widget: "image", required: false, hint: "Photo affichée à côté de votre nom sur l’accueil, sans recadrage. Indépendante de la photo À propos."}
+          - {label: "Photo À propos", name: "portrait", widget: "image", required: false, hint: "Photo affichée uniquement dans la section À propos, sans recadrage."}
           - {label: "Lieu (ex. Née et travaille à Bruxelles)", name: "lieu", widget: "string"}
           - {label: "Biographie", name: "bio", widget: "text"}
           - {label: "Email", name: "email", widget: "string"}

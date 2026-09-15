@@ -23,5 +23,5 @@
 - Ajouter une œuvre : admin → Galerie → Œuvres → « + » → téléversez l'image,
   remplissez titre/technique/année/dimensions → « Publish » → en ligne en ~30 sec.
 - Modifier bio, contact ou portrait : admin → « Informations du site ».
-- La « Photo portrait — Accueil et À propos » apparaît à côté du nom sur l’accueil et dans la biographie. Téléversez votre photo dans ce champ, puis cliquez sur « Publish » ; ses proportions sont conservées.
+- Les champs « Photo d’accueil » et « Photo À propos » permettent de choisir deux photos indépendantes. Téléversez une image dans chaque champ, puis cliquez sur « Publish » ; leurs proportions sont conservées.
 - L'ordre des œuvres se change en glissant les entrées.
