@@ -3,6 +3,7 @@
   "photo_accueil": "",
   "bio": "Muriel Colangelo, artiste peintre, développe une peinture où le corps, le tissu et la matière se rencontrent et se tranforment. Par le pli, l'enchevêtrement, la fragmentation et le geste, elle cherche des zones d'ambiguité, où la figure apparaît et se dissout. ",
   "lieu": "Née et travaille à Bruxelles.",
+  "transparence_fond_accueil": 20,
   "instagram": "@murielcolangelo",
   "fond_accueil": "/static/uploads/20260122_133434.jpg",
   "expositions": [
@@ -17,9 +18,13 @@
           "dimensions": ""
         }
       ]
+    },
+    {
+      "annee": "2025",
+      "titre": "Small",
+      "lieu": "Maison de la culture de Schaerbeek"
     }
   ],
   "portrait": "/static/uploads/img-20200723-wa0009.jpg",
-  "email": "murielcolangelo@gmail.com",
-  "transparence_fond_accueil": 20
+  "email": "murielcolangelo@gmail.com"
 }
