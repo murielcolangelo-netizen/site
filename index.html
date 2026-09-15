@@ -187,6 +187,21 @@
     color:var(--gris);border-top:1px solid #e8e8e4;
   }
   .chargement{color:var(--gris);font-style:italic}
+  img[data-agrandir]{cursor:zoom-in}
+  img[data-agrandir]:focus-visible{outline:2px solid var(--encre);outline-offset:5px}
+  .visionneuse{
+    position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;
+    border:0;padding:4.5rem 1.25rem 1.5rem;background:rgba(10,10,10,.96);color:#fff;
+  }
+  .visionneuse::backdrop{background:rgba(0,0,0,.85)}
+  .visionneuse[open]{display:flex;flex-direction:column;align-items:center;gap:1rem}
+  .visionneuse img{width:100%;height:100%;min-height:0;flex:1;object-fit:contain}
+  .visionneuse p{flex-shrink:0;text-align:center;font-size:1.1rem;max-width:60rem}
+  .fermer-visionneuse{
+    position:absolute;top:1rem;right:1rem;padding:.65rem 1rem;
+    border:1px solid #aaa;background:#171717;color:#fff;font:inherit;cursor:pointer;
+  }
+  .fermer-visionneuse:focus-visible{outline:2px solid #fff;outline-offset:3px}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -251,7 +266,56 @@
   <span>Conçu à Bruxelles</span>
 </footer>
 
+<dialog class="visionneuse" id="visionneuse" aria-label="Image agrandie">
+  <button class="fermer-visionneuse" type="button" autofocus>Fermer ×</button>
+  <img id="image-agrandie" alt="">
+  <p id="legende-agrandie"></p>
+</dialog>
+
 <script>
+const visionneuse = document.getElementById('visionneuse');
+const imageAgrandie = document.getElementById('image-agrandie');
+const legendeAgrandie = document.getElementById('legende-agrandie');
+let imageOrigine = null;
+let defilementAvant = '';
+function preparerImages() {
+  document.querySelectorAll('.cadre img, .photo-accueil, .portrait img, .expo-oeuvres img').forEach(img => {
+    img.dataset.agrandir = '';
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-haspopup', 'dialog');
+    img.setAttribute('aria-label', 'Agrandir : ' + (img.alt || 'image'));
+  });
+}
+function agrandirImage(img) {
+  if (!img.hasAttribute('data-agrandir') || !img.getAttribute('src')) return;
+  imageOrigine = img;
+  imageAgrandie.src = img.currentSrc || img.src;
+  imageAgrandie.alt = img.alt;
+  legendeAgrandie.textContent = img.alt;
+  defilementAvant = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+  visionneuse.showModal();
+}
+document.addEventListener('click', event => {
+  if (event.target.matches('img[data-agrandir]')) agrandirImage(event.target);
+});
+document.addEventListener('keydown', event => {
+  if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('img[data-agrandir]')) {
+    event.preventDefault();
+    agrandirImage(event.target);
+  }
+});
+visionneuse.querySelector('button').addEventListener('click', () => visionneuse.close());
+visionneuse.addEventListener('click', event => {
+  if (event.target === visionneuse || event.target === imageAgrandie) visionneuse.close();
+});
+visionneuse.addEventListener('close', () => {
+  document.body.style.overflow = defilementAvant;
+  imageAgrandie.removeAttribute('src');
+  if (imageOrigine) imageOrigine.focus({preventScroll:true});
+});
+preparerImages();
 fetch('/content/galerie.json').then(r => r.json()).then(data => {
   const g = document.getElementById('galerie');
   g.innerHTML = '';
@@ -270,6 +334,7 @@ fetch('/content/galerie.json').then(r => r.json()).then(data => {
         </div>
       </div>`);
   });
+  preparerImages();
   const obs = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
   }), {threshold:.12});
@@ -324,6 +389,7 @@ fetch('/content/site.json').then(r => r.json()).then(s => {
       el.appendChild(expo);
     });
   }
+  preparerImages();
   const em = document.getElementById('email');
   em.textContent = s.email; em.href = 'mailto:' + s.email;
   if (s.instagram) {
