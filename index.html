@@ -49,9 +49,8 @@
   /* ---------- Accueil ---------- */
   .hero{
     max-width:var(--max);margin:0 auto;
-    padding:7rem 2.5rem 5rem;
-    min-height:78vh;
-    display:flex;flex-direction:column;justify-content:space-between;
+    padding:5rem 2.5rem;
+    display:flex;flex-direction:column;gap:3rem;
     position:relative;
   }
   .hero .sur{
@@ -59,8 +58,13 @@
     color:var(--gris);
     animation:monter 1s .1s cubic-bezier(.2,.7,.2,1) backwards;
   }
+  .hero .presentation{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);
+    align-items:center;gap:3rem;
+  }
+  .hero .photo-accueil{width:100%;max-height:440px;object-fit:contain}
   .hero h1{
-    font-size:clamp(3.4rem,11vw,9.5rem);
+    font-size:clamp(2.5rem,6.5vw,5.5rem);
     font-weight:400;letter-spacing:.01em;line-height:.95;
     animation:monter 1.1s .2s cubic-bezier(.2,.7,.2,1) backwards;
   }
@@ -76,6 +80,14 @@
   .hero .lieu-hero{
     font-family:var(--sans);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
     color:var(--gris);white-space:nowrap;
+  }
+  @media(max-width:640px){
+    .hero{padding:3rem 1.25rem;gap:2rem}
+    .hero .presentation{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem}
+    .hero h1{font-size:clamp(1.65rem,6.5vw,2.6rem)}
+    .hero .bas{flex-direction:column;align-items:flex-start;gap:1rem}
+    .nav{padding:1.2rem 1.25rem;flex-wrap:wrap;gap:1rem}
+    .nav ul{flex-wrap:wrap;gap:1rem}
   }
   @keyframes monter{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
@@ -188,7 +200,10 @@
 
 <div class="hero" id="accueil">
   <p class="sur">Artiste peintre</p>
-  <h1>Muriel<br><em>Colangelo</em></h1>
+  <div class="presentation">
+    <h1>Muriel<br><em>Colangelo</em></h1>
+    <img class="photo-accueil" id="photo-accueil" src="/static/uploads/portrait.svg" alt="Portrait de Muriel Colangelo">
+  </div>
   <div class="bas">
     <p class="citation" id="citation-hero">« La peinture est une façon de laisser parler le silence. »</p>
     <p class="lieu-hero">Bruxelles — Belgique</p>
@@ -257,7 +272,9 @@ fetch('/content/galerie.json').then(r => r.json()).then(data => {
 });
 
 fetch('/content/site.json').then(r => r.json()).then(s => {
-  document.getElementById('portrait').src = s.portrait;
+  const portrait = s.portrait || '/static/uploads/portrait.svg';
+  document.getElementById('portrait').src = portrait;
+  document.getElementById('photo-accueil').src = portrait;
   document.getElementById('lieu').textContent = s.lieu;
   document.getElementById('bio').textContent = s.bio;
   if (s.expositions && s.expositions.length) {
