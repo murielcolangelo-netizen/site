@@ -48,6 +48,10 @@
 
   /* ---------- Accueil ---------- */
   .hero{
+    display:grid;position:relative;width:100%;
+  }
+  .hero .contenu-accueil{
+    grid-area:1 / 1;align-self:center;width:100%;min-width:0;
     max-width:var(--max);margin:0 auto;
     padding:5rem 2.5rem;
     display:flex;flex-direction:column;gap:3rem;
@@ -58,9 +62,9 @@
     color:var(--gris);
     animation:monter 1s .1s cubic-bezier(.2,.7,.2,1) backwards;
   }
-  .hero > :not(.fond-accueil){position:relative;z-index:1}
+  .hero .contenu-accueil{position:relative;z-index:1}
   .hero .fond-accueil{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+    grid-area:1 / 1;align-self:center;width:100%;height:auto;min-width:0;object-fit:contain;
     opacity:.2;pointer-events:none;user-select:none;
   }
   .hero .fond-accueil[hidden]{display:none}
@@ -89,7 +93,7 @@
     color:var(--gris);white-space:nowrap;
   }
   @media(max-width:640px){
-    .hero{padding:3rem 1.25rem;gap:2rem}
+    .hero .contenu-accueil{padding:3rem 1.25rem;gap:2rem}
     .hero .presentation{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem}
     .hero h1{font-size:clamp(1.65rem,6.5vw,2.6rem)}
     .hero .bas{flex-direction:column;align-items:flex-start;gap:1rem}
@@ -229,6 +233,7 @@
 
 <div class="hero" id="accueil">
   <img class="fond-accueil" id="fond-accueil" alt="" aria-hidden="true" hidden>
+  <div class="contenu-accueil">
   <p class="sur" data-texte="activite">Artiste peintre</p>
   <div class="presentation">
     <h1><span data-texte="prenom">Muriel</span><br><em data-texte="nom">Colangelo</em></h1>
@@ -237,6 +242,7 @@
   <div class="bas">
     <p class="citation" id="citation-hero" data-texte="citation">« La peinture est une façon de laisser parler le silence. »</p>
     <p class="lieu-hero" data-texte="lieu_accueil">Bruxelles — Belgique</p>
+  </div>
   </div>
 </div>
 
