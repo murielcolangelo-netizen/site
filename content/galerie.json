@@ -1,18 +1,18 @@
 {
   "oeuvres": [
     {
-      "image": "/static/uploads/20260115_105958.jpg",
-      "titre": "Joined",
-      "annee": "2026",
-      "dimensions": "120 x 100 cm",
-      "technique": "Acrylique sur toile"
-    },
-    {
       "image": "/static/uploads/20260414_154936.jpg",
       "titre": "la chute",
       "technique": "huile sur toile",
       "annee": "2026",
       "dimensions": "220 x150 cm"
+    },
+    {
+      "image": "/static/uploads/20260115_105958.jpg",
+      "titre": "Joined",
+      "annee": "2026",
+      "dimensions": "120 x 100 cm",
+      "technique": "Acrylique sur toile"
     },
     {
       "image": "/static/uploads/20260330_100821.jpg",
