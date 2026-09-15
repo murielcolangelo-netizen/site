@@ -31,7 +31,7 @@ collections:
     label: "Informations du site"
     files:
       - name: "infos"
-        label: "Biographie et contact"
+        label: "Photos, biographie, contact et expositions"
         file: "content/site.json"
         fields:
           - {label: "Photo d’accueil", name: "photo_accueil", widget: "image", required: false, hint: "Photo affichée à côté de votre nom sur l’accueil, sans recadrage. Indépendante de la photo À propos."}
@@ -44,6 +44,8 @@ collections:
           - label: "Expositions (par ordre chronologique inverse)"
             name: "expositions"
             widget: "list"
+            required: false
+            hint: "Ajoutez une exposition avec le bouton +, ouvrez une entrée pour modifier son année, son titre et son lieu, ou supprimez-la. Glissez les entrées pour placer les plus récentes en premier, puis cliquez sur Publish pour publier."
             summary: "{{fields.annee}} — {{fields.titre}}"
             fields:
               - {label: "Année", name: "annee", widget: "string"}
