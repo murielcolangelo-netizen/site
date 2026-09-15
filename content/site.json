@@ -9,8 +9,15 @@
   "expositions": [
     {
       "annee": "2026",
-      "titre": "Titre de l'exposition",
-      "lieu": "Galerie — Ville"
+      "titre": "Grand hospice",
+      "lieu": "Grand hospice",
+      "oeuvres": [
+        {
+          "image": "/static/uploads/20260122_133434.jpg",
+          "titre": "Herman",
+          "dimensions": "120 X 130"
+        }
+      ]
     },
     {
       "annee": "2025",
