@@ -51,3 +51,15 @@ collections:
               - {label: "Année", name: "annee", widget: "string"}
               - {label: "Exposition", name: "titre", widget: "string"}
               - {label: "Lieu", name: "lieu", widget: "string"}
+              - label: "Œuvres de cette exposition"
+                name: "oeuvres"
+                widget: "list"
+                required: false
+                summary: "{{fields.titre}}"
+                hint: "Ajoutez une image depuis votre ordinateur ou la médiathèque. Glissez les œuvres pour choisir leur ordre d’affichage sous cette exposition."
+                fields:
+                  - {label: "Image", name: "image", widget: "image", required: true}
+                  - {label: "Titre", name: "titre", widget: "string"}
+                  - {label: "Technique", name: "technique", widget: "string", required: false}
+                  - {label: "Année", name: "annee", widget: "string", required: false}
+                  - {label: "Dimensions", name: "dimensions", widget: "string", required: false}

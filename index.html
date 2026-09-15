@@ -160,6 +160,13 @@
   .expo .annee{font-style:italic;font-size:1.1rem}
   .expo .titre-expo{font-size:1.15rem}
   .expo .lieu-expo{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+  .expo-oeuvres{
+    grid-column:1 / -1;min-width:0;width:100%;display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));
+    gap:2rem;align-items:start;
+  }
+  .expo-oeuvres figure{min-width:0}
+  .expo-oeuvres .legende{flex-wrap:wrap;overflow-wrap:anywhere}
   @media(max-width:640px){.expo{grid-template-columns:4rem 1fr}.expo .lieu-expo{grid-column:2}}
 
   /* ---------- Contact ---------- */
@@ -280,12 +287,41 @@ fetch('/content/site.json').then(r => r.json()).then(s => {
   if (s.expositions && s.expositions.length) {
     const el = document.getElementById('expo-liste');
     s.expositions.forEach(x => {
-      el.insertAdjacentHTML('beforeend', `
-        <div class="expo">
-          <span class="annee">${x.annee}</span>
-          <span class="titre-expo">${x.titre}</span>
-          <span class="lieu-expo">${x.lieu}</span>
-        </div>`);
+      const expo = document.createElement('article');
+      expo.className = 'expo';
+      const ajouterTexte = (parent, classe, texte) => {
+        const span = document.createElement('span');
+        span.className = classe;
+        span.textContent = texte || '';
+        parent.appendChild(span);
+      };
+      ajouterTexte(expo, 'annee', x.annee);
+      ajouterTexte(expo, 'titre-expo', x.titre);
+      ajouterTexte(expo, 'lieu-expo', x.lieu);
+      const oeuvres = Array.isArray(x.oeuvres) ? x.oeuvres.filter(o => o && o.image) : [];
+      if (oeuvres.length) {
+        const grille = document.createElement('div');
+        grille.className = 'expo-oeuvres';
+        oeuvres.forEach(o => {
+          const figure = document.createElement('figure');
+          const img = document.createElement('img');
+          img.src = o.image;
+          img.alt = o.titre || 'Œuvre exposée';
+          img.loading = 'lazy';
+          figure.appendChild(img);
+          const meta = [o.technique, o.annee, o.dimensions].filter(Boolean).join(' — ');
+          if (o.titre || meta) {
+            const legende = document.createElement('figcaption');
+            legende.className = 'legende';
+            if (o.titre) ajouterTexte(legende, 'titre', o.titre);
+            if (meta) ajouterTexte(legende, 'meta', meta);
+            figure.appendChild(legende);
+          }
+          grille.appendChild(figure);
+        });
+        expo.appendChild(grille);
+      }
+      el.appendChild(expo);
     });
   }
   const em = document.getElementById('email');
