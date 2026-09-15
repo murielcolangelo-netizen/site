@@ -27,7 +27,7 @@ Dans l’administration → « Informations du site » → « Photos, biographie
   remplissez titre/technique/année/dimensions → « Publish » → en ligne en ~30 sec.
 - Modifier bio, contact ou portrait : admin → « Informations du site ».
 - Modifier les expositions : admin → « Informations du site » → « Photos, biographie, contact et expositions » → « Expositions ». Ajoutez, modifiez ou supprimez une entrée (année, exposition, lieu), glissez les entrées pour changer leur ordre, puis cliquez sur « Publish ».
-- Les champs « Photo d’accueil » et « Photo À propos » permettent de choisir deux photos indépendantes. Téléversez une image dans chaque champ, puis cliquez sur « Publish » ; leurs proportions sont conservées.
+- Le champ « Photo À propos » permet de modifier le portrait de la biographie. La photo de fond de l’accueil se règle séparément.
 - L'ordre des œuvres se change en glissant les entrées.
 - Ajouter des œuvres à une exposition : ouvrez l’exposition dans « Informations du site », puis « Œuvres de cette exposition » → « + ». Choisissez une image depuis votre ordinateur ou la médiathèque et renseignez le titre (technique, année et dimensions facultatives). Cliquez sur « Publish ». Les œuvres s’affichent sous cette exposition, sans recadrage ; cette liste est indépendante de la galerie principale.
 

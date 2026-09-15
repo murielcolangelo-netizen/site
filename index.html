@@ -73,11 +73,7 @@
     .hero .fond-accueil.fond-charge{animation:none;opacity:var(--opacite-fond,.2)}
   }
   .hero .fond-accueil[hidden]{display:none}
-  .hero .presentation{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);
-    align-items:center;gap:3rem;
-  }
-  .hero .photo-accueil{width:100%;max-height:440px;object-fit:contain}
+  .hero .presentation{display:block}
   .hero h1{
     font-size:clamp(2.5rem,6.5vw,5.5rem);
     font-weight:400;letter-spacing:.01em;line-height:.95;
@@ -99,7 +95,6 @@
   }
   @media(max-width:640px){
     .hero .contenu-accueil{padding:3rem 1.25rem;gap:2rem}
-    .hero .presentation{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem}
     .hero h1{font-size:clamp(1.65rem,6.5vw,2.6rem)}
     .hero .bas{flex-direction:column;align-items:flex-start;gap:1rem}
     .nav{padding:1.2rem 1.25rem;flex-wrap:wrap;gap:1rem}
@@ -226,7 +221,6 @@
   @media(max-width:900px){
     .nav{flex-wrap:wrap;gap:.5rem 1.5rem}
     .nav ul{gap:1rem;flex-wrap:wrap}
-    .hero .presentation{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:1.5rem}
     .hero .lieu-hero{white-space:normal}
     .expo{grid-template-columns:4rem minmax(0,1fr);gap:1rem}
     .expo .lieu-expo{grid-column:2}
@@ -238,7 +232,6 @@
     .nav li{min-width:0}
     .nav ul a{display:flex;align-items:center;justify-content:center;min-height:44px;text-align:center;overflow-wrap:anywhere;color:var(--encre)}
     .hero .contenu-accueil{padding:2.5rem 1.25rem;gap:1.5rem}
-    .hero .presentation{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem}
     .hero h1{font-size:clamp(1.7rem,6.6vw,2.65rem);line-height:1.05}
     .hero .sur{font-size:.7rem;letter-spacing:.18em;color:var(--encre)}
     .hero .citation{font-size:1.1rem;line-height:1.5}
@@ -295,7 +288,6 @@
   <p class="sur" data-texte="activite">Artiste peintre</p>
   <div class="presentation">
     <h1><span data-texte="prenom">Muriel</span><br><em data-texte="nom">Colangelo</em></h1>
-    <img class="photo-accueil" id="photo-accueil" src="/static/uploads/portrait.svg" alt="Portrait de Muriel Colangelo">
   </div>
   <div class="bas">
     <p class="citation" id="citation-hero" data-texte="citation">« La peinture est une façon de laisser parler le silence. »</p>
@@ -353,7 +345,6 @@ const textesPrets = fetch('/content/textes.json').then(r => { if (!r.ok) throw n
   document.querySelectorAll('[data-texte]').forEach(el => { el.textContent = textes[el.dataset.texte]; });
   document.querySelector('meta[name="description"]').content = textes.description;
   document.querySelector('.portrait').dataset.label = textes.portrait_label;
-  document.getElementById('photo-accueil').alt = textes.alt_accueil;
   document.getElementById('portrait').alt = textes.alt_portrait;
   document.getElementById('visionneuse').setAttribute('aria-label', textes.image_agrandie);
   preparerImages();
@@ -364,7 +355,7 @@ const legendeAgrandie = document.getElementById('legende-agrandie');
 let imageOrigine = null;
 let defilementAvant = '';
 function preparerImages() {
-  document.querySelectorAll('.cadre img, .photo-accueil, .portrait img, .expo-oeuvres img').forEach(img => {
+  document.querySelectorAll('.cadre img, .portrait img, .expo-oeuvres img').forEach(img => {
     img.dataset.agrandir = '';
     img.tabIndex = 0;
     img.setAttribute('role', 'button');
@@ -444,7 +435,6 @@ textesPrets.then(() => fetch('/content/site.json')).then(r => r.json()).then(s =
   }
   const portrait = s.portrait || '/static/uploads/portrait.svg';
   document.getElementById('portrait').src = portrait;
-  document.getElementById('photo-accueil').src = s.photo_accueil || '/static/uploads/portrait.svg';
   document.getElementById('lieu').textContent = s.lieu;
   document.getElementById('bio').textContent = s.bio;
   if (s.expositions && s.expositions.length) {

@@ -34,7 +34,6 @@ collections:
         label: "Photos, biographie, contact et expositions"
         file: "content/site.json"
         fields:
-          - {label: "Photo d’accueil", name: "photo_accueil", widget: "image", required: false, hint: "Photo affichée à côté de votre nom sur l’accueil, sans recadrage. Indépendante de la photo À propos."}
           - {label: "Photo de fond de l’accueil", name: "fond_accueil", widget: "image", required: false, hint: "Importez votre nouvelle photo : elle apparaît derrière le nom et le portrait, sans découpe. Retirez-la pour revenir au fond uni."}
           - {label: "Transparence du fond (%)", name: "transparence_fond_accueil", widget: "number", value_type: "int", min: 0, max: 100, step: 1, default: 80, required: false, hint: "80 = photo discrète ; 0 = photo pleinement visible ; 100 = photo invisible. Ce réglage ne modifie ni le texte ni le portrait."}
           - {label: "Photo À propos", name: "portrait", widget: "image", required: false, hint: "Photo affichée uniquement dans la section À propos, sans recadrage."}
@@ -100,7 +99,6 @@ collections:
           - {"label":"Message de chargement","name":"chargement","widget":"string","required":false}
           - {"label":"Description pour les moteurs de recherche","name":"description","widget":"text","required":false}
           - {"label":"Mention sur le portrait","name":"portrait_label","widget":"string","required":false}
-          - {"label":"Description de la photo d’accueil","name":"alt_accueil","widget":"string","required":false}
           - {"label":"Description de la photo À propos","name":"alt_portrait","widget":"string","required":false}
           - {"label":"Libellé d’agrandissement","name":"agrandir","widget":"string","required":false}
           - {"label":"Description d’image par défaut","name":"image","widget":"string","required":false}
